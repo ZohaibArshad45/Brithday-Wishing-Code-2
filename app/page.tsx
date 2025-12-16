@@ -4,15 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import TypingText from "@/components/TypingText";
 import AnimatedButton from "@/components/AnimatedButton";
 import TrailEffect from "@/components/ConfettiBackground";
-import { Heart, Sparkles, Star, Globe, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Heart, Sparkles, Star, Globe } from "lucide-react";
 
 export default function HomePage() {
   const [cakeCut, setCakeCut] = useState(false);
-  const [showBalloons, setShowBalloons] = useState(true);
+  const [showBalloons] = useState(true);
   const [currentName, setCurrentName] = useState(0);
   const [scaleFactor, setScaleFactor] = useState(1);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null); // ✅ Type fixed here
+
   const names = ["My happiness", "Meri dost", "My whole world"];
 
   // Handle window resize for scaling
@@ -43,7 +43,7 @@ export default function HomePage() {
       setCurrentName((prev) => (prev + 1) % names.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [names.length]); // ✅ Added dependency
 
   const handleCakeClick = () => {
     setCakeCut(true);
@@ -144,7 +144,6 @@ export default function HomePage() {
             key={currentName}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.2 }}
             transition={{ duration: 0.5 }}
             className="relative"
           >
@@ -247,7 +246,6 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
             className="text-center p-3 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur-sm rounded-xl border border-blue-300/30 shadow-md max-w-xs mx-auto"
           >
             <p className="text-sm font-medium text-blue-100">
@@ -272,22 +270,21 @@ export default function HomePage() {
               <Sparkles className="w-4 h-4 text-cyan-300" />
             </motion.div>
             <p className="text-sm md:text-base text-blue-50 leading-relaxed font-light">
-              "To the one who brings joy to my days, light to my world, and love
-              to my heart. 💫"
+              To the one who brings joy to my days, light to my world, and love
+              to my heart. 💫
             </p>
           </div>
         </motion.div>
 
         {/* Action Buttons - Compact with Next Page Button */}
         <div className="flex flex-col items-center gap-3 mb-4">
-          {/* Next Page Button */}
           {/* Surprise Button */}
           <AnimatedButton
-            href="/surprise"
+            href="/"
             className="px-6 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 hover:from-pink-600 hover:via-purple-600 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl"
           >
             <span className="flex items-center gap-2">
-              🎁 Discover Surprise
+              🎁 Love you So much Besti
             </span>
           </AnimatedButton>
         </div>
