@@ -281,29 +281,6 @@ export default function HomePage() {
         {/* Action Buttons - Compact with Next Page Button */}
         <div className="flex flex-col items-center gap-3 mb-4">
           {/* Next Page Button */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="w-full max-w-xs"
-          >
-            <Link href="/message" className="block">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-6 py-3 text-sm font-semibold rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-600 hover:from-blue-700 hover:via-cyan-600 hover:to-sky-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
-              >
-                <span>Go to Next Page</span>
-                <motion.span
-                  animate={{ x: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </motion.span>
-              </motion.button>
-            </Link>
-          </motion.div> */}
-
           {/* Surprise Button */}
           <AnimatedButton
             href="/surprise"
@@ -313,16 +290,6 @@ export default function HomePage() {
               🎁 Discover Surprise
             </span>
           </AnimatedButton>
-
-          {/* Balloons Toggle Button */}
-          {/* <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowBalloons(!showBalloons)}
-            className="px-4 py-2 text-sm font-medium rounded-xl bg-gradient-to-r from-indigo-500/30 to-blue-500/30 backdrop-blur-sm border border-blue-400/30 hover:border-blue-300/50 transition-all flex items-center gap-2"
-          >
-            {showBalloons ? "🎈 Hide Balloons" : "🎈 Show Balloons"}
-          </motion.button> */}
         </div>
 
         {/* Footer Note - Minimal */}
